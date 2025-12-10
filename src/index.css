@@ -1,0 +1,162 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  min-height: 100vh;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  color: black;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.1;
+  align-self: center;
+  color: rgb(0, 158, 0);
+  text-shadow: 1px 1px 5px rgb(2, 97, 0);
+  font-family: monospace;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #00a419;
+  cursor: pointer;
+  transition: all 0.25s;
+  width: 300px;
+}
+button:hover {
+  border-color: #646cff;
+  background-color: #00db21;
+  scale: 1.1;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.form{
+  width: 700px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 5px 20px ;
+  margin: 30px 0;
+  background-color: rgb(234, 234, 234);
+}
+
+.container{
+  height: 100px;
+  gap: 40px;
+}
+
+.input-names, .input-contacts{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.input-gender, .input-subject{
+  align-self: center;
+  height: 50px;
+  gap: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.radio-container, .checkbox-container{
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+}
+
+input[type = "text"],
+     [type = "tel"],
+     [type = "email"],
+     [type = "url"],
+     select{
+  display: block;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding-left: 10px;
+  height: 30px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+input[type = "radio"]{
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+input[type = "radio"]:hover, input[type = "radio"]:checked{
+  scale: 2;
+}
+
+textarea{
+  width: 100%;
+  margin-bottom: 30px;
+  max-width: 100%;
+  max-height: 300px;
+  min-width: 50%;
+  min-height: 100px;
+}
+
+input[type = "file"]{
+  margin-bottom: 30px;
+}
+
+label{
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.button-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px 0;
+}

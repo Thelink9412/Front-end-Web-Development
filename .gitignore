@@ -1,0 +1,109 @@
+# Node modules
+
+
+
+# Node
+
+node_modules/
+
+
+
+# Build output (Vite / CRA)
+
+dist/
+
+build/
+
+.vite/
+
+
+
+# Vite cache
+
+.vite-cache/
+
+
+
+# Environment files
+
+.env
+
+.env.*.local
+
+
+
+# Logs
+
+npm-debug.log*
+
+yarn-debug.log*
+
+pnpm-debug.log*
+
+*.log
+
+
+
+# OS files
+
+.DS_Store
+
+Thumbs.db
+
+
+
+# Editors/IDE
+
+.vscode/
+
+.idea/
+
+*.suo
+
+*.ntvs*
+
+*.njsproj
+
+*.sln
+
+
+
+# Test / coverage
+
+coverage/
+
+.nyc_output/
+
+
+
+# Misc caches
+
+.cache/
+
+.parcel-cache/
+
+/.pnp/
+
+
+
+# Dependency directories
+
+/.pnp.cjs
+
+
+
+# Local env / secret files
+
+*.local
+
+
+
+# Build artifacts (public output)
+
+public/dist/
+
+
+
+# ESLint cache
+
+.eslintcache
