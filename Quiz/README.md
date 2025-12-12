@@ -1,16 +1,58 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Quiz App
 
-Currently, two official plugins are available:
+**Description**  
+- Simple quiz application built with React and Vite.  
+- Multiple-choice questions loaded from `src/QuestionsDB.js`.  
+- Shows immediate correct/wrong feedback via an animated notification and transitions between questions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Features**  
+- Question/answer UI with a submit button.  
+- Animated feedback notification (rendered via a React portal).  
+- Coordinated entry/exit animations for questions and the quiz container.  
+- Results screen with restart option.
 
-## React Compiler
+**Prerequisites**  
+- Node.js (v16+ recommended)  
+- npm
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Install & Run (development)**  
+Install dependencies:
+```bash
+npm install
+```
+Start dev server:
+```bash
+npm run dev
+```
+Open the URL shown by Vite (usually http://localhost:5173)
 
-## Expanding the ESLint configuration
+**Build for production**
+```bash
+npm run build
+```
+Serve the `dist` folder with a static server (example):
+```bash
+npx serve dist
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Project structure (key files)**  
+- `src/Quiz.jsx` — top-level component that manages current question and animations  
+- `src/Question.jsx` — question UI, answer selection and notification trigger  
+- `src/Notify.jsx` — notification component (uses portal to render in document body)  
+- `src/QuestionsDB.js` — question data (array of question objects)  
+- `src/Answer.jsx` — individual answer component  
+- `src/Results.jsx` — final results screen  
+- `src/index.css` — styles and animation rules  
+- `index.html` — Vite entry HTML
+
+**How it works (brief)**  
+1. User selects an answer and clicks Submit.  
+2. `Question` triggers the notification and reports correctness to the parent (Quiz).  
+3. Notification animates in/out; Quiz coordinates timing so the question index advances only after exit animations finish.  
+4. When all questions are answered, `Results` is shown and the quiz can be restarted.
+
+**Development notes / tips**  
+- Notification is rendered with a React portal so it stays fixed near the bottom of the viewport and isn't affected by the quiz container animations.  
+- Animations are coordinated with small timeouts; if you change animation durations in CSS, update the matching timeouts in the components.  
+- To debug timing issues, add `console.log` statements in `Question` and `Quiz` lifecycle code to trace when state changes occur.
