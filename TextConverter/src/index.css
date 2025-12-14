@@ -1,0 +1,127 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  min-height: 100vh;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  color: black;
+}
+
+h2, h3 {
+  font-size: 2em;
+  line-height: 1.1;
+  align-self: center;
+  color: rgb(0, 158, 0);
+  text-shadow: 1px 1px 5px rgb(2, 97, 0);
+  font-family: monospace;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 0.7em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #00a419;
+  cursor: pointer;
+  transition: all 0.25s;
+  width: auto;
+}
+button:hover {
+  border-color: #646cff;
+  scale: 1.1;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.main-container{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-container #input-area{
+  width: 80%;
+  height: 300px;
+  resize: none;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.main-container .nav-bar{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-container .info-box{
+  align-self: flex-start;
+  padding-left: 10%;
+  color: wheat;
+}
+
+.uppercase-btn{
+  background-color: rgb(240, 63, 63);
+}
+
+.lowercase-btn{
+  background-color: rgb(232, 245, 52);
+  color: black;
+}
+
+.claer-all-btn{
+  background-color: rgb(65, 238, 46);
+}
+
+.copy-btn{
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.clear-whitespaces-btn{
+  background-color: rgb(0, 0, 0);
+}
+
+.reverse-word-btn{
+  background-color: rgb(104, 39, 245);
+}
+
+.reverse-sentence-btn{
+  background-color: rgb(246, 51, 162);
+}
