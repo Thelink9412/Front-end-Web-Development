@@ -1,0 +1,129 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  min-height: 100vh;
+  width: 100%;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  max-width: 100vw;
+  min-height: 100vh;
+  color: black;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.1;
+  align-self: center;
+  color: rgb(0, 158, 0);
+  text-shadow: 1px 1px 5px rgb(2, 97, 0);
+  font-family: monospace;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #00a419;
+  cursor: pointer;
+  transition: all 0.25s;
+  width: 100px;
+}
+button:hover {
+  border-color: #646cff;
+  background-color: #00db21;
+  scale: 1.1;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.main-header{
+  display: flex;
+  gap: 30px;
+  background-color: #7fccff;
+  padding: 10px 20px;
+}
+
+.website-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-link{
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.nav-link:hover{
+    color: #fff;
+}
+
+.custom-carousel {
+    padding: 20px 20px;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.carousel-image {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform .4s ease-in-out;
+}
+
+.custom-carousel .carousel-item {
+  transition: transform .4s ease-in-out;
+}
+
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    width: 100vw;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1 1 300px;
+    margin: 10px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+}
