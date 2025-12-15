@@ -108,11 +108,59 @@ button:focus-visible {
   transition: transform .4s ease-in-out;
 }
 
+.destinations-list{
+  display: flex;
+  justify-content: space-around;
+  align-items: safe;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 30px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.destinations-list.animate{
+  opacity: 1;
+}
+
+.single-destination-preview{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 35%;
+  height: auto;
+  text-align: center;
+  margin: 20px 0;
+  border: 1px solid gray;
+  border-radius: 20px;
+  box-shadow: #242424 7px 7px 20px 0px;
+  padding-bottom: 20px;
+}
+
+.destinations-list .single-destination-preview .preview-img{
+  width: 95%;
+  height: 100%;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: scale 0.2s ease-in-out;
+}
+
+.destinations-list .single-destination-preview .destination-name{
+  margin-top: 20px;
+}
+
+.destinations-list .single-destination-preview .preview-img:hover{
+  scale: 1.02;
+}
+
 .main-footer {
     background-color: #333;
     color: #fff;
     width: 100vw;
     padding: 20px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
