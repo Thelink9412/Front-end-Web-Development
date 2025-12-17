@@ -1,64 +1,73 @@
-# SubmissionForm
+# Sicily Tourism — Frontend (Vite + React)
 
-A small React demo that shows a basic submission form component and how to handle user input without a page reload.
-
-## Overview
-
-This project contains a minimal React application with a `Form` component that collects user input and handles form submission. The submitted data is currently logged to the browser console for demonstration and debugging.
-
-The app is intended as an educational example: easy to read, extend, and integrate into a larger project.
+This repository contains a React + Vite frontend for a small tourism site showcasing Sicilian destinations. It includes a home carousel, destinations listing, detail pages, and a contact form. The project is a frontend demo (no backend included).
 
 ## Features
+- Home page with image carousel and highlights
+- Destinations listing with cards and routing to detail pages
+- Destination detail view with images and description
+- Contact form component for user messages (local handling)
+- Responsive layout using Bootstrap / styled-components
 
-- Simple controlled inputs
-- Submit handler using `event.preventDefault()` to avoid page reload
-- Easy to extend (validation, API integration, tests)
+## Tech stack
+- React 19
+- Vite
+- React Router
+- Bootstrap / React-Bootstrap
+- styled-components
 
-## Requirements
-
+## Prerequisites
 - Node.js (recommended >= 14)
-- npm or yarn
+- npm (or yarn)
 
 ## Installation
-
-Open a PowerShell terminal and run:
+Open PowerShell in the project folder and install dependencies:
 
 ```powershell
-cd "c:\Users\Pc\OneDrive\Desktop\JS Projects\React\SubmissionForm"
+cd "c:\Users\Pc\OneDrive\Desktop\JS Projects\React\Front-end_Git\SicilyTourism"
 npm install
 ```
 
-## Run (development)
+## Development
 
 ```powershell
 npm run dev
 ```
 
-Open `http://localhost:5173` (Vite default) or the URL shown in the terminal.
+Open the URL shown in the terminal (default: http://localhost:5173).
 
-If the project was scaffolded with Create React App, use:
-
-```powershell
-npm start
-```
-
-## Build (production)
+## Production build
 
 ```powershell
 npm run build
+npm run preview
 ```
 
-The optimized output will be in the `dist/` or `build/` folder depending on the setup.
+## Useful scripts (from `package.json`)
+- `dev`: start Vite dev server
+- `build`: create production build
+- `preview`: preview production build locally
+- `lint`: run ESLint
 
-## Project Structure (key files)
+## Project structure (key files)
+- `src/HomePage.jsx` — landing page with carousel
+- `src/Destinations.jsx` — destinations list
+- `src/DestinationDetail.jsx` — detail view
+- `src/Carousel.jsx` — carousel component
+- `src/ContactForm.jsx` — contact form component
+- `src/destinationsList.js` — example destination data
+- `src/main.jsx` — app bootstrap and router
+- `src/index.css` — global styles
+- `index.html` and `public/` — static assets
 
-- `src/Form.jsx` — the form component and submit logic
-- `src/App.jsx` — application root
-- `src/main.jsx` — app bootstrap
-- `index.html` / `public/` — static assets
+## Notes
+- This project is frontend-only; to persist messages or dynamic data, add an API/backend and replace local state with network calls.
+- Modify demo data in `src/destinationsList.js` to change displayed destinations.
 
-## Notes & Tips
+## Contributing
+- Open an issue or submit a pull request for improvements.
 
-- If the form still reloads the page, verify that `handleSubmit` calls `event.preventDefault()`.
-- To persist or send submissions to a server, replace the console logging with a `fetch`/`axios` call.
-- Add client-side validation and unit tests (Jest + React Testing Library) for production readiness.
+## License
+- Add a `LICENSE` file or check `package.json` to declare a license.
+
+Enjoy exploring Sicily!
