@@ -1,64 +1,69 @@
-# SubmissionForm
+**Crowdfunding — Frontend (Vite + React)**
 
-A small React demo that shows a basic submission form component and how to handle user input without a page reload.
-
-## Overview
-
-This project contains a minimal React application with a `Form` component that collects user input and handles form submission. The submitted data is currently logged to the browser console for demonstration and debugging.
-
-The app is intended as an educational example: easy to read, extend, and integrate into a larger project.
+This repository contains a React + Vite frontend for a small crowdfunding UI: project list, pledge modal, progress indicators, and local notifications. It is a frontend demo only (no backend included).
 
 ## Features
+- Project list with funding goals and current progress
+- Pledge modal with multiple pledge options
+- Progress bar and counters updated on pledges
+- Local notifications/feedback
+- Responsive layout and easy extensibility
 
-- Simple controlled inputs
-- Submit handler using `event.preventDefault()` to avoid page reload
-- Easy to extend (validation, API integration, tests)
+## Tech stack
+- React 19
+- Vite
+- JavaScript and CSS
 
-## Requirements
-
+## Prerequisites
 - Node.js (recommended >= 14)
-- npm or yarn
+- npm (or yarn)
 
 ## Installation
-
-Open a PowerShell terminal and run:
+Open PowerShell in the project folder and install dependencies:
 
 ```powershell
-cd "c:\Users\Pc\OneDrive\Desktop\JS Projects\React\SubmissionForm"
+cd "c:\Users\Pc\OneDrive\Desktop\JS Projects\React\Front-end_Git\Crowdfunding"
 npm install
 ```
 
-## Run (development)
+## Development
 
 ```powershell
 npm run dev
 ```
 
-Open `http://localhost:5173` (Vite default) or the URL shown in the terminal.
+Open the URL shown in the terminal (default: http://localhost:5173).
 
-If the project was scaffolded with Create React App, use:
-
-```powershell
-npm start
-```
-
-## Build (production)
+## Production build
 
 ```powershell
 npm run build
+npm run preview
 ```
 
-The optimized output will be in the `dist/` or `build/` folder depending on the setup.
+## Useful scripts (from `package.json`)
+- `dev`: start Vite dev server
+- `build`: create production build
+- `preview`: preview production build locally
+- `lint`: run ESLint
 
-## Project Structure (key files)
-
-- `src/Form.jsx` — the form component and submit logic
-- `src/App.jsx` — application root
+## Project structure (key files)
+- `src/App.jsx` — main application component
+- `src/Project.jsx` — project card/component
+- `src/Notify.jsx` — notification component
+- `src/projectsList.js` — example project data
 - `src/main.jsx` — app bootstrap
-- `index.html` / `public/` — static assets
+- `src/index.css` — global styles
+- `index.html` and `public/` — static assets
 
-## Notes & Tips
+## Notes
+- This repo provides frontend behavior only. To persist pledges or serve data, add an API/backend and replace local state updates with network requests.
+- To modify demo data, edit `src/projectsList.js`.
 
-- If the form still reloads the page, verify that `handleSubmit` calls `event.preventDefault()`.
-- To persist or send submissions to a server, replace the console logging with a `fetch`/`axios` call.
-- Add client-side validation and unit tests (Jest + React Testing Library) for production readiness.
+## Contributing
+- Open an issue or submit a pull request for improvements.
+
+## License
+- Add a `LICENSE` file or check `package.json` to declare a license.
+
+Enjoy!
