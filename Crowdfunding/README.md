@@ -1,4 +1,4 @@
-**Crowdfunding — Frontend (Vite + React)**
+# Crowdfunding — Frontend (Vite + React)
 
 This repository contains a React + Vite frontend for a small crowdfunding UI: project list, pledge modal, progress indicators, and local notifications. It is a frontend demo only (no backend included).
 
