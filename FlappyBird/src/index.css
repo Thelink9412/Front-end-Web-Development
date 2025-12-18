@@ -1,0 +1,68 @@
+/* src/App.css */
+
+.App {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border: 1px solid #000;
+    overflow: hidden;
+    background-color: #87ceeb;
+    /* Sky Blue */
+    transition: background-color 0.5s ease;
+}
+
+.game-over {
+    background-color: #ff6347;
+    /* Tomato */
+}
+
+.game-over-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.bird {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    user-select: none;
+    transition: all 0.08s ease-in-out;
+}
+
+.pipe {
+    position: absolute;
+    width: 100px;
+    height: 600px;
+}
+
+.score{
+  position: absolute;
+  right: 20px;
+  margin-top: 10px;
+  font-size: 2em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.game-over-btn{
+  background-color: blue;
+  width: auto;
+  height: 2em;
+  font-size: 1em;
+  margin-top: 10px;
+  color: wheat;
+  border: none;
+  border-radius: 16px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.game-over-btn:hover{
+  border: 2px solid gray;
+  scale: 1.1;
+}
