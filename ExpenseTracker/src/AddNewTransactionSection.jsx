@@ -6,11 +6,11 @@ function AddNewTransactionSection({ setBudget, balance, setBalance, setExpense, 
     const [type, setType] = useState('expense')
 
     function handleNewTransaction() {
-        if (transactions.find(transaction => transaction.name.toLowerCase() === name.toLowerCase())) return;
+        if (transactions.find(transaction => transaction.name.toLowerCase() === name.toLowerCase()) || name === '' || value === '') return;
 
         if (type === 'expense') {
-            if(balance - value < 0) return;
-            
+            if (balance - value < 0) return;
+
             setExpense(prev => prev + +value);
             setBalance(prev => prev - +value);
         } else {
@@ -23,7 +23,7 @@ function AddNewTransactionSection({ setBudget, balance, setBalance, setExpense, 
     }
 
     return (
-        display && (
+        display && (<>
             <div className="add-transaction-section">
                 Name<br />
                 <input type="text" className="input-name" onChange={(e) => setName(e.target.value)} placeholder="Insert name" /> <br />
@@ -35,6 +35,8 @@ function AddNewTransactionSection({ setBudget, balance, setBalance, setExpense, 
                 </section>
                 <button className="add-transaction-btn" onClick={handleNewTransaction}>Add transaction</button>
             </div>
+            <hr width='90%' />
+        </>
         )
     )
 }

@@ -14,9 +14,10 @@ function App() {
   return (<div className='app'>
     <h2>Expense Tracker App</h2>
     <section className='balance-display'>
-      <span className='balance'>Balance ${balance}</span>
+      <span>Balance <b className='balance'>${balance}</b></span>
       <button className='show-add-transaction-btn' onClick={() => setDisplayAddTransaction(prev => !prev)}>{displayAddTransaction ? 'Cancel' : 'Add'}</button>
     </section>
+    <hr width='90%' />
     <AddNewTransactionSection setBudget={setBudget}
       balance={balance}
       setBalance={setBalance}
@@ -32,8 +33,8 @@ function App() {
       {transactions.filter(val => {
         return val.name.toLowerCase().includes(search.toLowerCase())
       })
-        .map((transaction, index) => {
-          return <Transaction key={index} id={index} name={transaction.name} value={transaction.value} type={transaction.type} setTransactions={setTransactions} />
+        .map((transaction) => {
+          return <Transaction key={transaction.name} name={transaction.name} value={transaction.value} type={transaction.type} setTransactions={setTransactions} />
         })}
     </div>
   </div>)
