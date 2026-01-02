@@ -1,0 +1,183 @@
+@font-face {
+  font-family: spartan;
+  src: url(./assets/fonts/LeagueSpartan-Bold.otf);
+}
+
+:root {
+  font-family: spartan;
+  line-height: 1.5;
+  font-weight: 400;
+  min-height: 100vh;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  overflow-x: hidden;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --link-underline-padding: .5em;
+  --personal-photo-dimensions: 40vw;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  color: rgb(255, 255, 255);
+  background-color: rgba(18, 28, 37);
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.1;
+  align-self: center;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgb(64, 64, 64);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.top-navbar{
+  display: flex;
+  justify-content: space-around;
+  min-height: 3em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3em;
+  padding: 1em 0;
+}
+
+.links{
+  display: flex;
+  gap: 3em;
+}
+
+.links li{
+  list-style: none;
+}
+
+.links li a{
+  text-decoration: none;
+  color: white;
+}
+
+.links li a:after{
+  background-color: white;
+  content: '';
+  display: block;
+  height: .1em;
+  margin-left: calc(var(--link-underline-padding) * -1);
+  margin-top: .2em;
+  transition: width .3s;
+  width: 0;
+}
+
+.links li a:hover:after{
+  width: calc(100% + var(--link-underline-padding) * 2);
+}
+
+.home{
+  width: 100vw;
+  margin-top: -3em;
+}
+
+.presentation{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.presentation .personal-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.hello-span, .personal-role{
+  font-size: 2em;
+  margin-left: 3em;
+}
+
+.point{
+  color: orange;
+}
+
+.presentation span{
+  display: block;
+}
+
+.presentation .personal-name{
+  font-family: sans-serif;
+  display: flex;
+  font-size: 1.7em;
+  margin: 1.2em 0;
+}
+
+.presentation .personal-name .line{
+  background-color: orange;
+  align-self: flex-end;
+  margin: 0 .3em 0.3em 0.3em;
+  content: '';
+  height: .1em;
+  width: 6em;
+}
+
+.presentation img{
+  width: var(--personal-photo-dimensions);
+  height: calc(var(--personal-photo-dimensions) - 4vw);
+  justify-self: end;
+}
+
+.info-buttons{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2em 0 0 5.5em;
+}
+
+.info-buttons button{
+  width: 10em;
+  height: 4em;
+  font-size: 1em;
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.info-buttons .resume-btn{
+  background-color: transparent;
+  border: 2px solid orange;
+}
+
+.info-buttons .resume-btn:hover{
+  background-color: rgb(28, 44, 57);
+}
+
+.info-buttons .contact-me-btn{
+  background-color: orange;
+  color: rgb(40, 40, 40);
+  border: none;
+}
+
+.info-buttons .contact-me-btn:hover{
+  background-color: rgb(255, 189, 68)
+}
