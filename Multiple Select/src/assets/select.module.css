@@ -47,6 +47,7 @@
 }
 
 .options-list{
+    background-color: #242424;
     position: absolute;
     margin: 0;
     padding: 0;
@@ -59,6 +60,7 @@
     left: 0;
     top: calc(100% + .25em);
     display: none;
+    z-index: 10;
 }
 
 .options-list.show{
