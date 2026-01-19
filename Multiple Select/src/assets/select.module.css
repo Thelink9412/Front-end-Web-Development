@@ -1,0 +1,16 @@
+.container{
+    position: relative;
+    width: 20em;
+    min-height: 1.5em;
+    border: .05em solid #777;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    padding: .5em;
+    border-radius: .25em;
+    outline: none;
+}
+
+.container:focus{
+    border-color: hsl(200, 100%, 50%);
+}

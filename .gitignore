@@ -106,4 +106,8 @@ public/dist/
 
 # ESLint cache
 
+<<<<<<< HEAD
 .eslintcache
+=======
+.eslintcache
+>>>>>>> 17a7a459ef9a1b6c8cc133caad9d30fea2001ced
