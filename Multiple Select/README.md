@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Multiple Select
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Multiple Select is a React application that allows users to select multiple options from a list. The project uses TypeScript for safer typing and Vite as a bundler for a fast and modern development experience.
 
-Currently, two official plugins are available:
+## Project Structure
+- **src/**: Contains the application's source code.
+  - `App.tsx`: Main application component.
+  - `main.tsx`: Application entry point.
+  - `SelectComponent.tsx`: Component handling the logic and interface for multiple selection.
+  - `index.css`: Global application styles.
+  - `assets/select.module.css`: Component-specific styles for the selection feature.
+- **public/**: Contains static public files.
+- **vite.config.ts**: Vite configuration.
+- **tsconfig.json**: TypeScript configuration.
+- **eslint.config.js**: ESLint configuration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **React**: Library for building user interfaces.
+- **TypeScript**: Programming language with static typing.
+- **Vite**: Modern bundler for web applications.
+- **CSS Modules**: For component-level styling.
 
-## React Compiler
+## System Requirements
+- Node.js (version 16 or higher)
+- npm or yarn
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone <REPOSITORY_URL>
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Multiple\ Select
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Running the Project
+To start the application in development mode:
+```bash
+npm run dev
 ```
+The app will be available at `http://localhost:5173`.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Available Scripts
+- `npm run dev`: Starts the application in development mode.
+- `npm run build`: Creates an optimized production build.
+- `npm run preview`: Starts a server to preview the production build.
+- `npm run lint`: Runs ESLint to analyze the code.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Contributions
+Contributions are welcome! Feel free to open issues or pull requests to improve the project.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
