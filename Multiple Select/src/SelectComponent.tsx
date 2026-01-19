@@ -1,28 +1,103 @@
-import styles from './assets/select.module.css'
+import { useEffect, useState } from "react";
+import styles from "./assets/select.module.css";
 
-type SelectOption = {
-    label: string,
-    value: number,
-}
+export type SelectOption = {
+  label: string;
+  value: number | string;
+};
+
+type MultipleSelectProps = {
+  multiple: true;
+  value: SelectOption[];
+  onChange: (value: SelectOption[]) => void;
+};
+
+type SingleSelectProps = {
+  multiple?: false;
+  value?: SelectOption;
+  onChange: (value?: SelectOption) => void;
+};
 
 type SelectProps = {
-    value?: SelectOption,
-    onChange: (value?: SelectOption) => void,
-    options: SelectOption[],
-}
+  options: SelectOption[];
+} & (MultipleSelectProps | SingleSelectProps);
 
-export default function SelectComponent({ value, onChange, options} : SelectProps) {
-    return (
-    <div tabIndex={0} className={styles.container}>
-        <span className={styles.value}>Value</span>
-        <button className={styles["clear-btn"]}>&times;</button>
-        <div className={styles.divider}></div>
-        <div className={styles.caret}></div>
-        <ul className={styles["options-list"]}>
-            {options.map(option => (
-                <li key={option.value} className={styles.option}>{option.label}</li>
-            ))}
-        </ul>
+export default function SelectComponent({
+  multiple,
+  value,
+  onChange,
+  options,
+}: SelectProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+
+  function clearOptions() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    multiple ? onChange([]) : onChange(undefined);
+  }
+
+  function selectOption(option: SelectOption) {
+    if (multiple) {
+      if (value.includes(option)) onChange(value.filter((o) => o !== option));
+      else onChange([...value, option]);
+    } else if (option !== value) onChange(option);
+  }
+
+  function isOptionSelected(option: SelectOption) {
+    return multiple ? value.includes(option) : option === value;
+  }
+
+  useEffect(() => {
+    if (isOpen) setHighlightedIndex(0);
+  }, [isOpen]);
+
+  return (
+    <div
+      tabIndex={0}
+      className={styles.container}
+      onBlur={() => setIsOpen(false)}
+    >
+      <span className={styles.value}>{multiple ? (
+        value.map((v, index) => (
+            <button key={index} onClick={e => {
+                e.stopPropagation();
+                selectOption(v)
+            }}
+            className={styles['option-badge']}>{v.label}
+            <span className={styles['remove-btn']}>&times;</span></button>
+        ))
+      ) : value?.label}</span>
+      <button
+        className={styles["clear-btn"]}
+        onClick={(e) => {
+          e.stopPropagation();
+          clearOptions();
+        }}
+      >
+        &times;
+      </button>
+      <div className={styles.divider}></div>
+      <div
+        className={styles.caret}
+        onClick={() => setIsOpen((prev) => !prev)}
+      ></div>
+      <ul className={`${styles["options-list"]} ${isOpen ? styles.show : ""}`}>
+        {options.map((option, index) => (
+          <li
+            key={option.value}
+            className={`${styles.option} ${isOptionSelected(option) ? styles.selected : ""} 
+                        ${index === highlightedIndex ? styles.highlighted : ""}`}
+            onMouseEnter={() => setHighlightedIndex(index)}
+            onClick={(e) => {
+              e.stopPropagation();
+              selectOption(option);
+              setIsOpen(false);
+            }}
+          >
+            {option.label}
+          </li>
+        ))}
+      </ul>
     </div>
-    )
+  );
 }
