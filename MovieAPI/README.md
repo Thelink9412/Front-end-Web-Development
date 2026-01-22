@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# MovieAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+MovieAPI is a React-based web application that allows users to search for movies and view detailed information about them. The app fetches data from an external movie database API and displays it in an organized and user-friendly interface.
 
-Currently, two official plugins are available:
+## Features
+- **Search Movies**: Users can search for movies by title.
+- **Detailed Information**: View detailed information about a movie, including:
+  - Title
+  - Year of release
+  - Genres
+  - Director
+  - Actors
+  - Plot
+  - Poster
+- **Responsive Design**: The app is designed to work seamlessly on various devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **React**: For building the user interface.
+- **TypeScript**: For type safety and better developer experience.
+- **Vite**: For fast development and build tooling.
+- **Axios**: For making HTTP requests to the movie database API.
 
-## React Compiler
+## Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-## Expanding the ESLint configuration
+2. Navigate to the project directory:
+   ```bash
+   cd MovieAPI
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+5. Open your browser and navigate to:
+   ```
+   http://localhost:5173
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+```
+MovieAPI/
+├── public/               # Static assets
+├── src/                  # Source code
+│   ├── components/       # React components
+│   ├── lib/              # Utility files (constants, types, etc.)
+│   ├── assets/           # Images and other assets
+│   ├── index.css         # Global styles
+│   ├── main.tsx          # Application entry point
+├── package.json          # Project dependencies and scripts
+├── vite.config.ts        # Vite configuration
+├── tsconfig.json         # TypeScript configuration
+└── README.md             # Project documentation
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## API Integration
+This project uses an external movie database API to fetch movie data. Ensure you have the correct API key and set it in the `API_URL` constant located in `src/lib/consts.ts`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Contributing
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push the branch.
+4. Open a pull request.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgments
+- [OMDb API](http://www.omdbapi.com/) for providing movie data.
+- The React and TypeScript communities for their amazing tools and libraries.
