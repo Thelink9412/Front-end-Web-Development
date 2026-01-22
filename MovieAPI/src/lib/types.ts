@@ -1,11 +1,15 @@
-export type MovieType = {
-  title: string,
-  year: number,
-  poster: string,
-  genre?: string[],
-  director: string,
-  actors?: string[],
-  plot: string,
+export type MovieBySearch = {
+  Title: string,
+  Poster: string,
+  Type: string,
+  Year: string,
+}
+
+export type DetailedMovie = MovieBySearch & {
+  Genre?: string,
+  Director: string,
+  Actors?: string,
+  Plot: string,
 }
 
 export type DisplayResultsParams = {

@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #2e2e2e;
   background-color: #800082;
 
   font-synthesis: none;
@@ -87,4 +87,37 @@ body {
 
 .main-app-container .search-movies-form .submit-search-btn:hover{
   transform: scale(1.1);
+}
+
+.error-msg{
+  color: #2e2e2e74;
+  margin-top: 3em;
+}
+
+.movie{
+  display: flex;
+  margin: 3em;
+  gap: 10px;
+  border: 1px solid #2e2e2e;
+  border-radius: .5em;
+  background: linear-gradient(155deg,rgba(245, 253, 255, 1) 0%, rgba(232, 232, 232, 1) 100%);
+  box-shadow: 5px 5px 16px -1px rgba(49,49,49,0.82);
+  transition: border 0.2s ease-in-out;
+}
+
+.movie:hover{
+  border: 1px solid blue;
+}
+
+.movie .poster{
+  margin: 10px;
+  border-radius: .5em;
+}
+
+.movie span{
+  display: block;
+}
+
+.movie .movie-info{
+  margin: 0 1em;
 }

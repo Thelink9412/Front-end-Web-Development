@@ -1,38 +1,32 @@
-import type { MovieType } from "../lib/types";
+import type { DetailedMovie } from "../lib/types";
 
 type MovieProps = {
-  movie: MovieType;
+  movie: DetailedMovie;
 };
 
 export function Movie({ movie }: MovieProps) {
   return (
-    <div className="movie">
+    <div className="movie" tabIndex={0}>
       <img
-        src={movie.poster}
-        alt={`${movie.title} Poster`}
+        src={movie.Poster}
+        alt={`${movie.Title} Poster`}
         className="poster"
       />
       <section className="movie-info">
-        <h2 className="movie-title">{movie.title}</h2>
-        <span className="movie-year">Released in: {movie.year}</span>
-        {movie.genre && (
+        <h2 className="movie-title">{movie.Title}</h2>
+        <span className="movie-year"><b>Released in:</b> {movie.Year}</span>
+        {movie.Genre && (
           <span className="movie-genres">
-            Genres:{" "}
-            {movie.genre.map(
-              (genre, index) => `${genre}${movie.genre![index] ? ", " : ""} `,
-            )}
+            <b>Genres:</b>{` ${movie.Genre.split(", ").join(", ")}`}
           </span>
         )}
-        <span className="movie-director">Directed by: {movie.director}</span>
-        {movie.actors && (
+        <span className="movie-director"><b>Directed by:</b> {movie.Director}</span>
+        {movie.Actors && (
           <span className="movie-actors">
-            Actors:{" "}
-            {movie.actors.map(
-              (actor, index) => `${actor}${movie.actors![index] ? ", " : ""} `,
-            )}
+            <b>Actors:</b>{` ${movie.Actors.split(", ").join(", ")}`}
           </span>
         )}
-        <p className="movie-plot">{movie.plot}</p>
+        <p className="movie-plot">{movie.Plot}</p>
       </section>
     </div>
   );

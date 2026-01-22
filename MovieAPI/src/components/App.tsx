@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { SearchMoviesForm } from "./SearchMoviesForm";
-import type { MovieType } from "../lib/types";
+import type { DetailedMovie } from "../lib/types";
 import type { DisplayResultsParams } from "../lib/types";
 import { Movie } from "./Movie";
 function App() {
-  const [resultsList, setResultsList] = useState<MovieType[]>([]);
+  const [resultsList, setResultsList] = useState<DetailedMovie[]>([]);
   const [displayResultsParams, setDisplayResultsParams] =
     useState<DisplayResultsParams>({
       resultsFound: false,
@@ -23,11 +23,11 @@ function App() {
           displayResultsParams.resultsFound ? (
             <div className="results-container">
               {resultsList.map((movie) => (
-                <Movie key={movie.title} movie={movie} />
+                <Movie key={movie.Title} movie={movie} />
               ))}
             </div>
           ) : (
-            <h2>No movies found!</h2>
+            <h2 className="error-msg">No movies found!</h2>
           )
         ) : null}
       </main>
