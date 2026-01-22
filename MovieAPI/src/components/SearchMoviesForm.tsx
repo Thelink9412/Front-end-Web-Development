@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { API_URL } from "../lib/consts";
-import type { MovieType } from "../lib/types";
+import type { DisplayResultsParams, MovieType } from "../lib/types";
 
 type SearchMoviesFormProps = {
-    setResultsList: (results: MovieType[]) => void
+    setResultsList: (results: MovieType[]) => void,
+    setDisplayResultsParams: (params: DisplayResultsParams) => void, 
 }
 
-export function SearchMoviesForm({ setResultsList }: SearchMoviesFormProps) {
+export function SearchMoviesForm({ setResultsList, setDisplayResultsParams}: SearchMoviesFormProps) {
   const [movieToSearch, setMovieToSearch] = useState("");
 
   function handleSubmit(e: React.FormEvent) {
@@ -16,7 +17,11 @@ export function SearchMoviesForm({ setResultsList }: SearchMoviesFormProps) {
     const fetchMovies = async () => {
       try {
         const results = await axios.get(`${API_URL}&s=${movieToSearch}`);
-        setResultsList(results.data)
+        console.log(results.data)
+        if(results.data.Response)
+          setResultsList(results.data.Search)
+
+        setDisplayResultsParams({resultsFound: results.data.Response, firstFetchDone: true})
       } catch (err) {
         if (axios.isAxiosError(err)) console.log(err.message);
         else console.log("Not Axios error");

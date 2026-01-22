@@ -2,9 +2,10 @@ export type MovieType = {
   title: string,
   year: number,
   poster: string,
-  genre: string[],
+  genre?: string[],
   director: string,
-  actors: string[],
+  actors?: string[],
+  plot: string,
 }
 
 export type DisplayResultsParams = {

@@ -15,12 +15,15 @@ function App() {
     <>
       <h1 className="title-h1">MOVIE API</h1>
       <main className="main-app-container">
-        <SearchMoviesForm setResultsList={setResultsList} />
+        <SearchMoviesForm
+          setResultsList={setResultsList}
+          setDisplayResultsParams={setDisplayResultsParams}
+        />
         {displayResultsParams.firstFetchDone ? (
           displayResultsParams.resultsFound ? (
             <div className="results-container">
-              {resultsList.map(movie => (
-                <Movie movie={movie} />
+              {resultsList.map((movie) => (
+                <Movie key={movie.title} movie={movie} />
               ))}
             </div>
           ) : (
