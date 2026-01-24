@@ -1,0 +1,22 @@
+.post{
+    cursor: pointer;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: .5em;
+    transition: box-shadow 0.1s ease-in-out;
+    background: linear-gradient(to right, #FFFFFF 0%, #E9E9E9 100%);
+}
+
+.post:hover{
+    box-shadow: 3px 5px 18px 4px rgba(56,56,56,0.64);
+}
+
+.post .post-title{
+    margin-top: 0;
+}
+
+.post .post-dateTime{
+    font-style: italic;
+    font-size: 13px;
+}
