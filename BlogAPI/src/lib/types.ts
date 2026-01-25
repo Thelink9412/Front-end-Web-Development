@@ -18,3 +18,13 @@ export type PostsContainerProps = {
 export type PostProps = {
     info: PostType,
 }
+export type CreatePostSectionProps = {
+    posts: PostType[],
+    setPosts: (posts: PostType[]) => void,
+}
+
+export type ButtonProps = {
+    className: string,
+    onClick: () => void,
+    children: string,
+}

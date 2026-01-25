@@ -1,0 +1,49 @@
+.create-post-section{
+    margin: 0 30px;
+}
+
+.create-post-section .create-post-input-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.create-post-section .new-post-title, .create-post-section .new-post-body{
+    background-color: antiquewhite;
+    outline: none; 
+    border: 1px solid #242424;
+    border-radius: .5em;
+    color: #242424;
+    padding: 5px;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.create-post-section .new-post-title:focus, .create-post-section .new-post-body:focus{
+    border-color: rgba(59, 255, 48, 1);
+}
+
+.create-post-section .new-post-title{
+    height: 2em;
+}
+
+.create-post-section .new-post-body{
+    resize: none;
+    height: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.create-post-section .upload-new-post-btn{
+    height: 3em;
+    background-color: rgb(16, 202, 6);
+    border: 1px solid transparent;
+    border-radius: .5em;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.create-post-section .upload-new-post-btn:hover{
+    background-color: rgb(50, 255, 39);
+    transform: scale(1.03);
+}

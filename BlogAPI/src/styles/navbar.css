@@ -18,3 +18,14 @@
 .navbar .search-input:focus, .navbar .search-input:hover{
   border: 2px solid rgba(59, 255, 48, 1);
 }
+
+.navbar a{
+  margin-left: 40px;
+  text-decoration: none;
+  color: whitesmoke;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar a:hover{
+  color: rgb(112, 255, 105);
+}

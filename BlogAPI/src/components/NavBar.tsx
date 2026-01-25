@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import type { NavBarProps } from "../lib/types";
-import '../styles/navbar.css'
+import "../styles/navbar.css";
 
 export default function NavBar({ searchInput, setSearchInput }: NavBarProps) {
   return (
@@ -11,6 +12,8 @@ export default function NavBar({ searchInput, setSearchInput }: NavBarProps) {
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
+      <Link to={"/"}>Home</Link>
+      <Link to={"/newPost"}>Create Post</Link>
     </nav>
   );
 }
