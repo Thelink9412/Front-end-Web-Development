@@ -33,17 +33,3 @@
     height: 10em;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.create-post-section .upload-new-post-btn{
-    height: 3em;
-    background-color: rgb(16, 202, 6);
-    border: 1px solid transparent;
-    border-radius: .5em;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-.create-post-section .upload-new-post-btn:hover{
-    background-color: rgb(50, 255, 39);
-    transform: scale(1.03);
-}

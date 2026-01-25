@@ -14,9 +14,23 @@
 
 .post .post-title{
     margin-top: 0;
+    text-decoration: none;
 }
 
 .post .post-dateTime{
     font-style: italic;
     font-size: 13px;
+}
+
+.post .info-btns-container{
+    display: flex;
+    gap: 40px;
+}
+
+.post .delete-btn{
+    background-color: rgb(255, 31, 31);
+}
+
+.post .delete-btn:hover{
+    background-color: rgb(208, 0, 0);
 }

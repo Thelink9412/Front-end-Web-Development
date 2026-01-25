@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# BlogAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+BlogAPI is a React-based blogging application that allows users to create, edit, and view blog posts. The project uses a JSON server as a mock backend to handle API requests for managing posts. This project demonstrates the use of React, TypeScript, and modern web development practices.
 
-Currently, two official plugins are available:
+## Features
+- View a list of blog posts.
+- Create new blog posts.
+- Edit existing blog posts.
+- Delete blog posts.
+- Navigate between different pages using React Router.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **React**: Frontend library for building user interfaces.
+- **TypeScript**: Adds static typing to JavaScript.
+- **Vite**: Development server and build tool.
+- **JSON Server**: Mock backend for handling API requests.
+- **Axios**: HTTP client for making API requests.
+- **CSS**: Styling for the application.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Folder Structure
+```
+BlogAPI/
+├── data/                # Contains the mock database (db.json).
+├── public/              # Public assets.
+├── src/                 # Source code.
+│   ├── api/             # API configuration and services.
+│   ├── components/      # React components.
+│   ├── lib/             # Utility functions and types.
+│   ├── styles/          # CSS files for styling.
+├── package.json         # Project dependencies and scripts.
+├── vite.config.ts       # Vite configuration.
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd BlogAPI
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Usage
+1. Start the JSON server:
+   ```bash
+   npx json-server -p 3500 -w "data/db.json"
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open your browser and navigate to:
+   ```
+   http://localhost:5173
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## API Endpoints
+The JSON server provides the following endpoints:
+- `GET /posts`: Retrieve all posts.
+- `POST /posts`: Create a new post.
+- `PUT /posts/:id`: Update an existing post.
+- `DELETE /posts/:id`: Delete a post.
+
+## Contributing
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgments
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [JSON Server](https://github.com/typicode/json-server)
+- [Axios](https://axios-http.com/)

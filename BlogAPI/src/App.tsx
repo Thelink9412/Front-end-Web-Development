@@ -5,7 +5,7 @@ import type { PostType } from "./lib/types";
 import NavBar from "./components/NavBar";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { PostsContainer } from "./components/PostsContainer";
-import { CreatePostSection } from "./components/CreatePostSection";
+import { UpdateDBSection } from "./components/UpdateDBSection";
 
 function App() {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -38,14 +38,39 @@ function App() {
             <Route
               path="/"
               element={
-                <PostsContainer posts={posts} searchInput={searchInput} />
+                <PostsContainer
+                  posts={posts}
+                  setPosts={setPosts}
+                  searchInput={searchInput}
+                />
               }
             />
             <Route
               path="/newPost"
-              element={<CreatePostSection posts={posts} setPosts={setPosts} />}
-            ></Route>
-            {/* <Route path='/post/:id' element={<Post />}></Route> */}
+              element={
+                <UpdateDBSection posts={posts} setPosts={setPosts}>
+                  Create a new post!
+                </UpdateDBSection>
+              }
+            />
+            <Route
+              path="/:id/info"
+              element={
+                <PostsContainer
+                  posts={posts}
+                  setPosts={setPosts}
+                  searchInput={searchInput}
+                />
+              }
+            />
+            <Route
+              path="/:id/edit"
+              element={
+                <UpdateDBSection posts={posts} setPosts={setPosts}>
+                  Edit post
+                </UpdateDBSection>
+              }
+            />
           </Routes>
         </div>
       </BrowserRouter>

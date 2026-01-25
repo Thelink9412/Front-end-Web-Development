@@ -1,5 +1,5 @@
 export type PostType = {
-    id: number,
+    id: string,
     title: string,
     dateTime: string,
     body: string,
@@ -13,18 +13,25 @@ export type NavBarProps = {
 export type PostsContainerProps = {
     posts: PostType[],
     searchInput: string,
+    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
 }
 
 export type PostProps = {
     info: PostType,
+    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
+    areButtonsDisplayed: boolean,
 }
-export type CreatePostSectionProps = {
+
+export type UpdateDBSectionProps = {
     posts: PostType[],
-    setPosts: (posts: PostType[]) => void,
+    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
+    title?: string,
+    body?: string,
+    children: string,
 }
 
 export type ButtonProps = {
     className: string,
-    onClick: () => void,
+    onClick: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
     children: string,
 }

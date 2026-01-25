@@ -30,3 +30,18 @@ body{
   background-color: white;
   color: #242424;
 }
+
+button{
+  height: 3em;
+  width: 8em;
+  background-color: rgb(16, 202, 6);
+  border: 1px solid transparent;
+  border-radius: .5em;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: rgb(50, 255, 39);
+  transform: scale(1.03);
+}
