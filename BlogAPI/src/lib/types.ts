@@ -5,15 +5,6 @@ export type PostType = {
     body: string,
 }
 
-export type NavBarProps = {
-    searchInput: string,
-    setSearchInput: (val: string) => void,
-}
-
-export type PostsContainerProps = {
-    searchInput: string,
-}
-
 export type PostProps = {
     info: PostType,
     areButtonsDisplayed: boolean,

@@ -7,14 +7,15 @@ import "../styles/createPost.css";
 import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import { updatePost, addNewPost } from "../slices/postsSlice";
 
-export function UpdateDBSection({
-  children,
-}: UpdateDBSectionProps) {
+export function UpdateDBSection({ children }: UpdateDBSectionProps) {
   const { items } = useAppSelector((state) => state.posts);
+
   const existingPostID = useParams().id;
+
   const postToEdit: PostType | undefined = items.find(
     (post) => post.id == existingPostID,
   );
+
   const isNewPost = !existingPostID;
 
   const navigate = useNavigate();

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { PostType } from "../lib/types";
 import api from "../api/posts";
+
 interface PostState {
   items: PostType[];
   status: "idle" | "loading" | "succeeded" | "failed";
@@ -83,8 +84,8 @@ const postsSlice = createSlice({
         },
       )
       .addCase(deletePost.fulfilled, (state, action: PayloadAction<string>) => {
-        state.items = state.items.filter(post => post.id !== action.payload);
-      })
+        state.items = state.items.filter((post) => post.id !== action.payload);
+      });
   },
 });
 

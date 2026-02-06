@@ -1,4 +1,3 @@
-import type { PostsContainerProps } from "../lib/types";
 import { Post } from "./Post";
 import "../styles/postsContainer.css";
 import { useParams } from "react-router-dom";
@@ -6,48 +5,39 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import { fetchPosts } from "../slices/postsSlice";
 
-export function PostsContainer({
-  searchInput,
-}: PostsContainerProps) {
+export function PostsContainer() {
   const dispatch = useAppDispatch();
   const { items, status, error } = useAppSelector((state) => state.posts);
+  const { filter } = useAppSelector((state) => state.filter);
 
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchPosts());
     }
   }, [status, dispatch]);
-  
+
   const postId = useParams().id;
   let postToShow = null;
   if (postId) postToShow = items.find((post) => post.id == postId);
 
-  if (status === 'loading') return <p>Caricamento in corso...</p>;
-  if (status === 'failed') return <p>Errore: {error}</p>;
-  
+  if (status === "loading") return <p>Caricamento in corso...</p>;
+  if (status === "failed") return <p>Errore: {error}</p>;
 
   return (
     <div className="posts-container">
       {postToShow ? (
-        <Post
-          info={postToShow}
-          areButtonsDisplayed={true}
-        />
+        <Post info={postToShow} areButtonsDisplayed={true} />
       ) : (
         items
           .filter((post) =>
-            post.title.toLowerCase().includes(searchInput.toLowerCase()),
+            post.title.toLowerCase().includes(filter.toLowerCase()),
           )
           .sort(
             (a, b) =>
               new Date(b.dateTime).getTime() - new Date(a.dateTime).getTime(),
           )
           .map((post, index) => (
-            <Post
-              key={index}
-              info={post}
-              areButtonsDisplayed={false}
-            />
+            <Post key={index} info={post} areButtonsDisplayed={false} />
           ))
       )}
     </div>
