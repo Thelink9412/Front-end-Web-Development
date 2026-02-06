@@ -3,3 +3,8 @@
     flex-direction: column;
     margin-bottom: 20px;
 }
+
+.posts-container.loading-state {
+  height: 100vh;
+  overflow: hidden;
+}
