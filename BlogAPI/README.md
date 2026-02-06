@@ -12,6 +12,7 @@ BlogAPI is a React-based blogging application that allows users to create, edit,
 
 ## Technologies Used
 - **React**: Frontend library for building user interfaces.
+- **Redux**: React library for advanced state management.
 - **TypeScript**: Adds static typing to JavaScript.
 - **Vite**: Development server and build tool.
 - **JSON Server**: Mock backend for handling API requests.
@@ -27,6 +28,7 @@ BlogAPI/
 │   ├── api/             # API configuration and services.
 │   ├── components/      # React components.
 │   ├── lib/             # Utility functions and types.
+│   ├── slices/          # Slices dor the Redux implementation.
 │   ├── styles/          # CSS files for styling.
 ├── package.json         # Project dependencies and scripts.
 ├── vite.config.ts       # Vite configuration.
@@ -35,7 +37,7 @@ BlogAPI/
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Thelink9412/Front-end-Web-Development/main/BlogAPI
    ```
 2. Navigate to the project directory:
    ```bash
@@ -75,6 +77,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgments
 - [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - [JSON Server](https://github.com/typicode/json-server)
