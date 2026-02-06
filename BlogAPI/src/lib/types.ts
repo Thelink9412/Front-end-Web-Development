@@ -11,7 +11,6 @@ export type NavBarProps = {
 }
 
 export type PostsContainerProps = {
-    posts: PostType[],
     searchInput: string,
     setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
 }

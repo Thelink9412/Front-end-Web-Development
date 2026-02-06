@@ -2,18 +2,41 @@ import type { PostsContainerProps } from "../lib/types";
 import { Post } from "./Post";
 import "../styles/postsContainer.css";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../lib/hooks";
+import { fetchPosts } from "../slices/postsSlice";
 
-export function PostsContainer({ posts, setPosts, searchInput }: PostsContainerProps) {
+export function PostsContainer({
+  setPosts,
+  searchInput,
+}: PostsContainerProps) {
+  const dispatch = useAppDispatch();
+  const { items, status, error } = useAppSelector((state) => state.posts);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchPosts());
+    }
+  }, [status, dispatch]);
+  
   const postId = useParams().id;
   let postToShow = null;
-  if (postId) postToShow = posts.find((post) => post.id == postId);
+  if (postId) postToShow = items.find((post) => post.id == postId);
+
+  if (status === 'loading') return <p>Caricamento in corso...</p>;
+  if (status === 'failed') return <p>Errore: {error}</p>;
+  
 
   return (
     <div className="posts-container">
       {postToShow ? (
-        <Post info={postToShow} setPosts={setPosts} areButtonsDisplayed={true} />
+        <Post
+          info={postToShow}
+          setPosts={setPosts}
+          areButtonsDisplayed={true}
+        />
       ) : (
-        posts
+        items
           .filter((post) =>
             post.title.toLowerCase().includes(searchInput.toLowerCase()),
           )
@@ -22,7 +45,12 @@ export function PostsContainer({ posts, setPosts, searchInput }: PostsContainerP
               new Date(b.dateTime).getTime() - new Date(a.dateTime).getTime(),
           )
           .map((post, index) => (
-            <Post key={index} info={post} setPosts={setPosts} areButtonsDisplayed={false} />
+            <Post
+              key={index}
+              info={post}
+              setPosts={setPosts}
+              areButtonsDisplayed={false}
+            />
           ))
       )}
     </div>

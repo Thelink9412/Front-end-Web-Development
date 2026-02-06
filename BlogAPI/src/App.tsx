@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import api from "./api/posts";
-import { isAxiosError } from "axios";
+import { useState } from "react";
 import type { PostType } from "./lib/types";
 import NavBar from "./components/NavBar";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -10,23 +8,6 @@ import { UpdateDBSection } from "./components/UpdateDBSection";
 function App() {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [searchInput, setSearchInput] = useState<string>("");
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const results = await api.get("/posts");
-        setPosts(results.data);
-      } catch (err) {
-        if (isAxiosError(err)) {
-          console.log(err.response?.data);
-          console.log(err.response?.status);
-          console.log(err.response?.headers);
-        }
-      }
-    };
-
-    fetchPosts();
-  }, []);
 
   return (
     <>
@@ -39,7 +20,6 @@ function App() {
               path="/"
               element={
                 <PostsContainer
-                  posts={posts}
                   setPosts={setPosts}
                   searchInput={searchInput}
                 />
@@ -57,7 +37,6 @@ function App() {
               path="/:id/info"
               element={
                 <PostsContainer
-                  posts={posts}
                   setPosts={setPosts}
                   searchInput={searchInput}
                 />
