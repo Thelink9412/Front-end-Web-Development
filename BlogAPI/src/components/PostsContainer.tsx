@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import { fetchPosts } from "../slices/postsSlice";
 
 export function PostsContainer({
-  setPosts,
   searchInput,
 }: PostsContainerProps) {
   const dispatch = useAppDispatch();
@@ -32,7 +31,6 @@ export function PostsContainer({
       {postToShow ? (
         <Post
           info={postToShow}
-          setPosts={setPosts}
           areButtonsDisplayed={true}
         />
       ) : (
@@ -48,7 +46,6 @@ export function PostsContainer({
             <Post
               key={index}
               info={post}
-              setPosts={setPosts}
               areButtonsDisplayed={false}
             />
           ))

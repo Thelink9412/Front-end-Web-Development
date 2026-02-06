@@ -12,12 +12,10 @@ export type NavBarProps = {
 
 export type PostsContainerProps = {
     searchInput: string,
-    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
 }
 
 export type PostProps = {
     info: PostType,
-    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
     areButtonsDisplayed: boolean,
 }
 

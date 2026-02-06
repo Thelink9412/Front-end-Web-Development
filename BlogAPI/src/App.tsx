@@ -20,7 +20,6 @@ function App() {
               path="/"
               element={
                 <PostsContainer
-                  setPosts={setPosts}
                   searchInput={searchInput}
                 />
               }
@@ -37,7 +36,6 @@ function App() {
               path="/:id/info"
               element={
                 <PostsContainer
-                  setPosts={setPosts}
                   searchInput={searchInput}
                 />
               }
