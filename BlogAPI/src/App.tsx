@@ -1,12 +1,10 @@
 import { useState } from "react";
-import type { PostType } from "./lib/types";
 import NavBar from "./components/NavBar";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { PostsContainer } from "./components/PostsContainer";
 import { UpdateDBSection } from "./components/UpdateDBSection";
 
 function App() {
-  const [posts, setPosts] = useState<PostType[]>([]);
   const [searchInput, setSearchInput] = useState<string>("");
 
   return (
@@ -27,7 +25,7 @@ function App() {
             <Route
               path="/newPost"
               element={
-                <UpdateDBSection posts={posts} setPosts={setPosts}>
+                <UpdateDBSection>
                   Create a new post!
                 </UpdateDBSection>
               }
@@ -43,7 +41,7 @@ function App() {
             <Route
               path="/:id/edit"
               element={
-                <UpdateDBSection posts={posts} setPosts={setPosts}>
+                <UpdateDBSection>
                   Edit post
                 </UpdateDBSection>
               }

@@ -3,19 +3,16 @@ import type { UpdateDBSectionProps, PostType } from "../lib/types";
 import { Button } from "./Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { formatCurrentDate } from "../lib/formatCurrentDate";
-import api from "../api/posts";
-import { isAxiosError } from "axios";
 import "../styles/createPost.css";
-import { useAppDispatch } from "../lib/hooks";
+import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import { updatePost, addNewPost } from "../slices/postsSlice";
 
 export function UpdateDBSection({
-  posts,
-  setPosts,
   children,
 }: UpdateDBSectionProps) {
+  const { items } = useAppSelector((state) => state.posts);
   const existingPostID = useParams().id;
-  const postToEdit: PostType | undefined = posts.find(
+  const postToEdit: PostType | undefined = items.find(
     (post) => post.id == existingPostID,
   );
   const isNewPost = !existingPostID;
@@ -42,31 +39,15 @@ export function UpdateDBSection({
   }
 
   function updateExistingPost() {
-    const updatedPost = {
-      id: existingPostID,
-      title: newPostTitle.trim() ? newPostTitle : postToEdit?.title,
+    const updatedPost: PostType = {
+      id: existingPostID!,
+      title: newPostTitle.trim() ? newPostTitle : postToEdit!.title,
       dateTime: formatCurrentDate(),
-      body: newPostBody.trim() ? newPostBody : postToEdit?.body,
-    };
-    const fetchEditPost = async () => {
-      try {
-        const result = await api.put(`/posts/${existingPostID}`, updatedPost);
-        setPosts(
-          posts.map((post) =>
-            post.id == existingPostID! ? { ...result.data } : post,
-          ),
-        );
-        navigate("/");
-      } catch (err) {
-        if (isAxiosError(err)) {
-          console.log(err.response?.data);
-          console.log(err.response?.status);
-          console.log(err.response?.headers);
-        }
-      }
+      body: newPostBody.trim() ? newPostBody : postToEdit!.body,
     };
 
-    fetchEditPost();
+    dispatch(updatePost(updatedPost));
+    navigate("/");
   }
 
   return (

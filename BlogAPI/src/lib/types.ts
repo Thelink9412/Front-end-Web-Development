@@ -20,8 +20,6 @@ export type PostProps = {
 }
 
 export type UpdateDBSectionProps = {
-    posts: PostType[],
-    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
     title?: string,
     body?: string,
     children: string,
