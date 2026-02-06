@@ -5,26 +5,12 @@ export type PostType = {
     body: string,
 }
 
-export type NavBarProps = {
-    searchInput: string,
-    setSearchInput: (val: string) => void,
-}
-
-export type PostsContainerProps = {
-    posts: PostType[],
-    searchInput: string,
-    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
-}
-
 export type PostProps = {
     info: PostType,
-    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
     areButtonsDisplayed: boolean,
 }
 
 export type UpdateDBSectionProps = {
-    posts: PostType[],
-    setPosts: (posts: PostType[] | ((prev: PostType[]) => PostType[])) => void,
     title?: string,
     body?: string,
     children: string,

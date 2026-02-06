@@ -2,24 +2,15 @@ import { useNavigate } from "react-router-dom";
 import type { PostProps } from "../lib/types";
 import "../styles/post.css";
 import { Button } from "./Button";
-import api from "../api/posts";
-import { isAxiosError } from "axios";
+import { useAppDispatch } from '../lib/hooks';
+import { deletePost } from '../slices/postsSlice';
 
-export function Post({ info, setPosts, areButtonsDisplayed }: PostProps) {
+export function Post({ info, areButtonsDisplayed }: PostProps) {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-  async function handleDelete() {
-    try {
-      await api.delete(`/posts/${info.id}`);
-      setPosts((prev) => prev.filter((post) => post.id !== info.id));
-      navigate("/");
-    } catch (err) {
-      if (isAxiosError(err)) {
-        console.log(err.response?.data);
-        console.log(err.response?.status);
-        console.log(err.response?.headers);
-      }
-    }
+  function handleDelete() {
+    dispatch(deletePost(info.id))
   }
 
   return (

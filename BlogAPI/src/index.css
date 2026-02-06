@@ -45,3 +45,7 @@ button:hover{
   background-color: rgb(50, 255, 39);
   transform: scale(1.03);
 }
+
+.no-overflow{
+  overflow: hidden;
+}
