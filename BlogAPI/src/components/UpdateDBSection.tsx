@@ -6,6 +6,8 @@ import { formatCurrentDate } from "../lib/formatCurrentDate";
 import api from "../api/posts";
 import { isAxiosError } from "axios";
 import "../styles/createPost.css";
+import { useAppDispatch } from "../lib/hooks";
+import { updatePost, addNewPost } from "../slices/postsSlice";
 
 export function UpdateDBSection({
   posts,
@@ -18,43 +20,25 @@ export function UpdateDBSection({
   );
   const isNewPost = !existingPostID;
 
-  // useEffect(() => {
-  //   if (existingPostID) {
-  //     setIsNewPost(false);
-  //   }
-  // }, []);
-
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   const [newPostTitle, setNewPostTitle] = useState("");
   const [newPostBody, setNewPostBody] = useState("");
 
   function uploadNewPost() {
     if (!newPostTitle.trim() || !newPostBody.trim()) return;
-
-    const fetchNewPost = async () => {
-      const newPost: PostType = {
-        id: String(Date.now()),
-        title: newPostTitle,
-        dateTime: formatCurrentDate(),
-        body: newPostBody,
-      };
-
-      try {
-        const result = await api.post("/posts", newPost);
-        setPosts([...posts, result.data]);
-        setNewPostBody("");
-        setNewPostTitle("");
-        navigate("/");
-      } catch (err) {
-        if (isAxiosError(err)) {
-          console.log(err.response?.data);
-          console.log(err.response?.status);
-          console.log(err.response?.headers);
-        }
-      }
+    const newPost: PostType = {
+      id: String(Date.now()),
+      title: newPostTitle,
+      dateTime: formatCurrentDate(),
+      body: newPostBody,
     };
 
-    fetchNewPost();
+    dispatch(addNewPost(newPost));
+    setNewPostBody("");
+    setNewPostTitle("");
+    navigate("/");
   }
 
   function updateExistingPost() {
@@ -69,10 +53,10 @@ export function UpdateDBSection({
         const result = await api.put(`/posts/${existingPostID}`, updatedPost);
         setPosts(
           posts.map((post) =>
-            (post.id == existingPostID! ? { ...result.data } : post)
+            post.id == existingPostID! ? { ...result.data } : post,
           ),
         );
-        navigate('/')
+        navigate("/");
       } catch (err) {
         if (isAxiosError(err)) {
           console.log(err.response?.data);
